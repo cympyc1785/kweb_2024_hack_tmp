@@ -1,6 +1,6 @@
 import Poll from '../entity/poll.entity';
+import CreatePollInput from '../type/poll/create.input';
 import { PollRepository } from '../repository/db.repository';
-import { CreatePollInput } from '../type/user/create.input';
 import { InternalServerError } from '../util/customErrors';
 
 export default class PollService {

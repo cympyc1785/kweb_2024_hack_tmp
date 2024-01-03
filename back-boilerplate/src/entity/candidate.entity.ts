@@ -1,16 +1,22 @@
 import {
-  Column,
-  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
-import User from './user.entity'
+import Poll from './poll.entity';
+import Restaurant from './restaurant.entity';
 
 @Entity()
 export default class Candidate {
   @PrimaryGeneratedColumn()
   id!: number;
+
+  @ManyToOne(() => Poll, (poll) => poll.id)
+  @JoinColumn()
+  pollId!: Poll;
+
+  @ManyToOne(() => Restaurant, (restaurant) => restaurant.id)
+  @JoinColumn()
+  restaurantId!: Restaurant;
 }

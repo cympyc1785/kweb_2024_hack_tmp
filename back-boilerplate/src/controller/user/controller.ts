@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import UserService from '../../service/user.service';
-import { CreateUserInput } from '../../type/user/create.input';
+import CreateUserInput from '../../type/user/create.input';
 import { BadRequestError } from '../../util/customErrors';
 
 export const getUserById: RequestHandler = async (req, res, next) => {

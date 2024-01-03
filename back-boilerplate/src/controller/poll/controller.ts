@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import PollService from '../../service/poll.service';
-import { CreatePollInput } from '../../type/user/create.input';
+import CreatePollInput from '../../type/poll/create.input';
 import { BadRequestError } from '../../util/customErrors';
 
 export const getPollById: RequestHandler = async (req, res, next) => {

@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import User from './user.entity'
+import User from './user.entity';
 
 @Entity()
 export default class Poll {
@@ -27,12 +27,15 @@ export default class Poll {
   @JoinColumn()
   createdBy!: User;
 
-  @Column({ nullable: true })
-  url?: string;
-
   @CreateDateColumn({ type: 'timestamp' })
   createdAt!: Date;
 
   @UpdateDateColumn({ type: 'timestamp', nullable: true })
   endedAt?: Date;
+
+  @Column({
+    nullable: false,
+    comment: "투표 URL"
+  })
+  url!: string;
 }

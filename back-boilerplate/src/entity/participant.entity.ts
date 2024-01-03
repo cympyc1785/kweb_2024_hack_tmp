@@ -5,22 +5,28 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import User from './user.entity'
-import Poll from './poll.entity'
+import User from './user.entity';
+import Poll from './poll.entity';
 
 @Entity()
 export default class Participant {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToOne(() => User, (user) => user.id)
+  @ManyToOne(() => User, (user) => user.id, { nullable: true })
   @JoinColumn()
-  userId!: User;
+  userId?: User;
 
-  @Column()
-  displayName!: string
+  @Column({
+    type: 'varchar',
+    length: 100,
+    nullable: false,
+    default: '아무개',
+    comment: '참여자 이름'
+  })
+  displayName!: string;
 
   @ManyToOne(() => Poll, (poll) => poll.id)
   @JoinColumn()
-  pollId!: Poll
+  pollId!: Poll;
 }
