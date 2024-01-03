@@ -1,8 +1,12 @@
 import AppDataSource from '../config/dataSource';
 import User from '../entity/user.entity';
-
-// 예시 repository입니다. 필요에 따라 수정하거나 삭제하셔도 됩니다.
+import Poll from '../entity/poll.entity';
 
 const UserRepository = AppDataSource.getRepository(User).extend({});
+const PollRepository = AppDataSource.getRepository(Poll).extend({});
 
-export default UserRepository;
+
+export {
+  UserRepository,
+  PollRepository
+};

@@ -1,7 +1,16 @@
-// 예시 type/dto입니다. 필요에 따라 수정하거나 삭제하셔도 됩니다.
+import User from '../../entity/user.entity';
 
-export default interface CreateUserInput {
-  firstName: string;
-  lastName: string;
-  age?: number;
+export interface CreateUserInput {
+  userName: string;
+  displayName: string;
+  password: string;
+  birthDate?: Date;
+}
+
+export interface CreatePollInput {
+  pollName: string;
+  createdBy: User;
+  url?: string;
+  createdAt: Date;
+  endedAt?: Date;
 }

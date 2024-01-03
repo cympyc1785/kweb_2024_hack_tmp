@@ -1,40 +1,38 @@
 import {
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
-// 예시 entity입니다. 필요에 따라 수정하거나 삭제하셔도 됩니다.
+import User from './user.entity'
 
 @Entity()
-export default class User {
+export default class Poll {
   @PrimaryGeneratedColumn()
   id!: number;
-
-  @Column()
-  pollName!: string;
 
   @Column({
     type: 'varchar',
     length: 100,
     nullable: false,
-    default: '김',
-    comment: '사용자의 성',
+    default: 'poll',
+    comment: '투표 이름'
   })
-  lastName!: string;
+  pollName!: string;
+
+  @OneToOne(() => User)
+  @JoinColumn()
+  createdBy!: User;
 
   @Column({ nullable: true })
-  age?: number;
+  url?: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt!: Date;
 
   @UpdateDateColumn({ type: 'timestamp', nullable: true })
-  updatedAt?: Date;
-
-  @DeleteDateColumn({ type: 'timestamp', nullable: true })
-  deletedAt?: Date;
+  endedAt?: Date;
 }

@@ -4,8 +4,6 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-// 예시 entity입니다. 필요에 따라 수정하거나 삭제하셔도 됩니다.
-
 @Entity()
 export default class User {
   @PrimaryGeneratedColumn()
@@ -16,7 +14,7 @@ export default class User {
     length: 100,
     nullable: false,
     default: 'user',
-    comment: 'username',
+    comment: '사용자 이름',
   })
   userName!: string;
 
@@ -25,10 +23,18 @@ export default class User {
     length: 100,
     nullable: false,
     default: 'nickname',
-    comment: 'nickname',
+    comment: '표시 이름',
   })
   displayName!: string;
 
+  @Column({
+    type: 'varchar',
+    length: 100,
+    nullable: false,
+    comment: '비밀번호'
+  })
+  password!: string;
+
   @Column({ type: 'timestamp', nullable: true })
-  birthDate?: number;
+  birthDate?: Date;
 }
