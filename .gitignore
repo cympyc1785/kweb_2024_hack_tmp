@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+front-boilerplate/.pnp
+front-boilerplate/.pnp.js
+
+# testing
+front-boilerplate/coverage
+
+# production
+front-boilerplate/build
+
+# misc
+front-boilerplate/.DS_Store
+
+front-boilerplate/npm-debug.log*
+front-boilerplate/yarn-debug.log*
+front-boilerplate/yarn-error.log*
+
+# back
+back-boilerplate/dist
+
+*.env*
