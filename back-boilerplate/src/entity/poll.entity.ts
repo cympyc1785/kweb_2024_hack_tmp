@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -23,7 +23,7 @@ export default class Poll {
   })
   pollName!: string;
 
-  @OneToOne(() => User)
+  @ManyToOne(() => User, (user) => user.id)
   @JoinColumn()
   createdBy!: User;
 
